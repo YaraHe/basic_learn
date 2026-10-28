@@ -1,0 +1,9 @@
+articles/Voice-Agent-Portfolio-Content/02-Final-Articles.zip
+.env
+.env.*
+!.env.example
+*.log
+.cache/
+tmp/
+*.bak
+*.tmp
