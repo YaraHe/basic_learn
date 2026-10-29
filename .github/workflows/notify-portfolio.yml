@@ -1,0 +1,41 @@
+name: Notify portfolio to rebuild
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/**'
+
+permissions:
+  contents: read
+
+jobs:
+  dispatch-portfolio:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger portfolio Pages workflow
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_DISPATCH_TOKEN }}
+          CONTENT_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$GH_TOKEN" ]; then
+            echo "PORTFOLIO_DISPATCH_TOKEN is missing. Add it to YaraHe/basic_learn repository Actions secrets."
+            exit 1
+          fi
+
+          response=$(curl --fail-with-body --silent --show-error \
+            --request POST \
+            --url https://api.github.com/repos/YaraHe/YaraHe.github.io/actions/workflows/deploy-pages.yml/dispatches \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2026-03-10" \
+            --header "Content-Type: application/json" \
+            --data "{\"ref\":\"main\",\"inputs\":{\"content_commit\":\"$CONTENT_COMMIT\"}}")
+
+          run_id=$(jq -er '.workflow_run_id' <<< "$response")
+          run_url=$(jq -er '.html_url' <<< "$response")
+          echo "Triggered portfolio workflow for D commit $CONTENT_COMMIT"
+          echo "C workflow run: $run_url (run ID $run_id)"
