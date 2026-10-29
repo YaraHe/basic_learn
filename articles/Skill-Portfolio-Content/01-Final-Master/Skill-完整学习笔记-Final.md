@@ -15,7 +15,7 @@ status: "reviewed"
 
 # Skill：概念、技术原理与多场景应用
 
-> 本文整理自个人学习笔记《Skill（概念+技术原理+多场景应用）》，保留原有示例、操作过程与选型思考。文中的 Claude Code、Codex 与开源仓库操作分别对应特定工具或示例，不代表所有 Agent 的统一实现。文末“个人选型思考”是学习阶段的判断，并非项目实测结论。
+> 本文整理自[@技术爬爬虾【Agent Skills (Claude Skills) 详细攻略，一期视频精通】](https://www.bilibili.com/video/BV1HuiyBQE9G/?share_source=copy_web&vd_source=0e7a33d9084dfc869a888b89447e1a46)，保留原有示例、操作过程与选型思考。文中的 Claude Code、Codex 与开源仓库操作分别对应特定工具或示例，不代表所有 Agent 的统一实现。文末“个人选型思考”是学习阶段的判断，并非项目实测结论。
 
 ## 1. Skill 是什么？
 

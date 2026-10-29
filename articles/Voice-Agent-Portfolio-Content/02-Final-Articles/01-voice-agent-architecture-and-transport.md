@@ -64,7 +64,7 @@ Voice Agent（AI 语音智能体）把语音输入、模型理解与语音输出
 课程以 WebRTC 与 WebSocket 搭建实时交互：
 1. **WebRTC**：承载实时音频流。在这个 LiveKit 示例里，网页或移动端与 LiveKit 服务器之间通过 WebRTC 传送音频。
 
-2. **WebSocket**：（Web Real-Time Communication）** 免费开源项目，给网页、移动端 App 提供实时音视频通信 API，用来传输音视频流。客户端（网页 / 手机 / 电话）和 LiveKit 服务器之间靠 WebRTC 传输音频流，低延迟，适合语音通话。在 LiveKit 的客户端协议里用于与服务器交换信令消息，再建立 WebRTC 媒体连接；WebRTC 标准本身并不规定必须用 WebSocket 做信令。
+2. **WebSocket**：（Web Real-Time Communication）免费开源项目，给网页、移动端 App 提供实时音视频通信 API，用来传输音视频流。客户端（网页 / 手机 / 电话）和 LiveKit 服务器之间靠 WebRTC 传输音频流，低延迟，适合语音通话。在 LiveKit 的客户端协议里用于与服务器交换信令消息，再建立 WebRTC 媒体连接；WebRTC 标准本身并不规定必须用 WebSocket 做信令。
 
 3. **处理方式**
    - 异步和流式处理：尽可能边接收、边转写、边生成，而不是每一步都等完整结果。

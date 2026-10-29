@@ -48,9 +48,9 @@ ColBERT（Contextualized Late Interaction over BERT）介于“整段只存一�
 
 三种方式可以这样记：Bi-Encoder 先独立编码、适合大范围快速召回；Cross-Encoder 成对比较、适合少量候选精排；ColBERT 把细粒度交互留到检索阶段，换取另一种质量、速度和存储的组合。可以比较三条选型路径：
 
-- **通用的两阶段路径：**Bi-Encoder 召回 → Cross-Encoder 重排 → LLM。
-- **希望保留更细匹配信息的路径：**ColBERT 召回 → 必要时再用 Cross-Encoder 重排 → LLM；额外重排是否有收益需实测。
-- **轻量路径：**只用 Bi-Encoder 召回并交给 LLM，减少重排带来的延迟与费用，但要检查质量是否满足需求。
+- **通用的两阶段路径：** Bi-Encoder 召回 → Cross-Encoder 重排 → LLM。
+- **希望保留更细匹配信息的路径：** ColBERT 召回 → 必要时再用 Cross-Encoder 重排 → LLM；额外重排是否有收益需实测。
+- **轻量路径：** 只用 Bi-Encoder 召回并交给 LLM，减少重排带来的延迟与费用，但要检查质量是否满足需求。
 
 
 ## Reranking 的两种做法
